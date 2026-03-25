@@ -5,7 +5,7 @@ This is not a known exploit nor is it patched yet. CorsairLLAccess64.sys has a f
 
 By loading Corsair's own signed external module (`CorsairLLAccessLib64.dll`) into your process, you can leverage their legitimate, signed driver to gain Ring 0 I/O port read/write access from user mode — no unsigned driver required. Having I/O port R/W at the highest level can allow for some interesting things.
 
-#How To Use
+# How To Use
 Download the repository, compile the project and place everything from the libs foldering to were the compiled executable is. You can also grab the fresh files from its normal location.
 `C:\Program Files\Corsair\Corsair Device Control Service\bin`
 
