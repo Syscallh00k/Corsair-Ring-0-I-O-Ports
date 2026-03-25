@@ -9,6 +9,9 @@ By loading Corsair's own signed external module (`CorsairLLAccessLib64.dll`) int
 Download the repository, compile the project and place everything from the libs foldering to were the compiled executable is. You can also grab the fresh files from its normal location.
 `C:\Program Files\Corsair\Corsair Device Control Service\bin`
 
+# Output Example
+![Image](./Corsair IO.png)
+
 # Possibilities
 - R/W CMOS RTC
 - Control PIC
