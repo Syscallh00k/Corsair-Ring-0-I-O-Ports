@@ -1,5 +1,73 @@
 # Corsair-Ring-0-I-O-Ports
 
+# CorsairLLAccess64.sys
+**IO Port Function**
+```
+__int64 __fastcall sub_140001FFC(__int64 a1, char a2, unsigned int a3, unsigned int a4, _QWORD *a5)
+{
+  unsigned int v5; // r8d
+  unsigned int v6; // r8d
+  unsigned int v7; // r8d
+  unsigned int v8; // r8d
+  unsigned int v9; // r8d
+  unsigned __int32 v11; // eax
+  unsigned __int16 v12; // ax
+  unsigned __int8 v13; // al
+
+  if ( a3 >= 0xA )
+  {
+    v5 = *(unsigned __int16 *)(a1 + 8);
+    if ( a2 )
+    {
+      v6 = v5 - 1;
+      if ( !v6 )
+      {
+        __outbyte(*(_DWORD *)a1, *(_BYTE *)(a1 + 4));
+        goto LABEL_17;
+      }
+      v7 = v6 - 1;
+      if ( !v7 )
+      {
+        __outword(*(_DWORD *)a1, *(_WORD *)(a1 + 4));
+        goto LABEL_17;
+      }
+      if ( v7 == 2 )
+      {
+        __outdword(*(_DWORD *)a1, *(_DWORD *)(a1 + 4));
+LABEL_17:
+        *a5 = *(unsigned __int16 *)(a1 + 8);
+        return 0LL;
+      }
+      return 3221225485LL;
+    }
+    if ( a4 >= v5 )
+    {
+      v8 = v5 - 1;
+      if ( !v8 )
+      {
+        v13 = __inbyte(*(_DWORD *)a1);
+        *(_BYTE *)a1 = v13;
+        goto LABEL_17;
+      }
+      v9 = v8 - 1;
+      if ( !v9 )
+      {
+        v12 = __inword(*(_DWORD *)a1);
+        *(_WORD *)a1 = v12;
+        goto LABEL_17;
+      }
+      if ( v9 == 2 )
+      {
+        v11 = __indword(*(_DWORD *)a1);
+        *(_DWORD *)a1 = v11;
+        goto LABEL_17;
+      }
+      return 3221225485LL;
+    }
+  }
+  return 3221225507LL;
+}
+```
 
 # CorsairLLAccessLib64.dll
 **16 Bit Write**
