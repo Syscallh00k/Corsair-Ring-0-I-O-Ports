@@ -10,7 +10,7 @@ Download the repository, compile the project and place everything from the libs 
 `C:\Program Files\Corsair\Corsair Device Control Service\bin`
 
 # Output Example
-<img width="1021" height="364" alt="image" src="https://github.com/Syscallh00k/Corsair-Ring-0-I-O-Ports/blob/main/Corsair%20IO.png" />
+<img width="1021" height="600" alt="image" src="https://github.com/Syscallh00k/Corsair-Ring-0-I-O-Ports/blob/main/Corsair%20IO.png" />
 
 
 # Possibilities
