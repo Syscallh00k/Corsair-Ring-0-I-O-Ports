@@ -1,4 +1,4 @@
-﻿#define WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
 
 #include <Windows.h>
 #include <iostream>
@@ -41,7 +41,7 @@ int main() {
     Sleep(2500);
 
     if (result == 0) {
-        printf("[/] Handle To Driver Created :)\nTesting Driver Capabilities\n");
+        printf("\nHandle To Driver Created :)\nTesting Driver Capabilities\n");
 
         DWORD version[2] = { 0 };
         if (iface.GetVersion(version))
@@ -57,25 +57,23 @@ int main() {
         iface.WritePortByte(0x70, 0x00);
         BYTE seconds = 0;
         if (iface.ReadPortByte(0x71, &seconds)) {
-            printf("[/] Can access CMOS registers (Full I/O privilege)\n");
+            printf("Can access CMOS registers (Full I/O privilege)\n");
         }
         else
-            printf("[/] Cannot access CMOS registers :(\n");
+            printf("Cannot access CMOS registers :(\n");
 
 
         DWORD pciAddr = 0x80000000;
         if (iface.WritePortDword(0xCF8, pciAddr)) {
             DWORD vendorDevice = 0;
             if (iface.ReadPortDword(0xCFC, &vendorDevice)) {
-                printf("[/] Can access PCI configuration space\n");
-                printf("[/] PCI Device at 00:00.0 - Vendor/Device: 0x%08X\n", vendorDevice);
-                printf("[/] Vendor ID: 0x%04X, Device ID: 0x%04X\n", vendorDevice & 0xFFFF, (vendorDevice >> 16) & 0xFFFF);
+                printf("Can access PCI configuration space\n");
+                printf("PCI Device at 00:00.0 - Vendor/Device: 0x%08X\n", vendorDevice);
+                printf("Vendor ID: 0x%04X, Device ID: 0x%04X\n", vendorDevice & 0xFFFF, (vendorDevice >> 16) & 0xFFFF);
             }
         }
-        else {
-            printf("[/] Cannot access PCI configuration space :(\n");
-        }
-
+        else
+            printf("Cannot access PCI configuration space :(\n");
     }
 
     iface.CloseDevice();
