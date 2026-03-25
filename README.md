@@ -1,5 +1,15 @@
 # Corsair-Ring-0-I-O-Ports
 
+# Information
+This is not a known exploit nor is it patched yet. CorsairLLAccess64.sys has a function that we can call from either getting the IOCTL code and sending a request, or by looking at the module that handles using this driver and sending a request. Reversing the module will show us that we can load it into our own process, call `CrGetLLAccessInterface` and obtain access to a table that allows us to send requests to the driver.
+
+By loading Corsair's own signed external module (`CorsairLLAccessLib64.dll`) into your process, you can leverage their legitimate, signed driver to gain Ring 0 I/O port read/write access from user mode — no unsigned driver required. Having I/O port R/W at the highest level can allow for some interesting things.
+
+# Possibilities
+- R/W CMOS RTC
+- Control PIC
+- Manipulate PIT (Timer)
+
 # CorsairLLAccess64.sys
 **Main Dispatch Function**
 ```
