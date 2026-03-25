@@ -1,6 +1,41 @@
 # Corsair-Ring-0-I-O-Ports
 
 # CorsairLLAccess64.sys
+**Main Dispatch Function**
+```
+ switch ( LowPart )
+    {
+      case 0x225398u:
+        v11 = sub_140001850;
+        break;
+      case 0x22539Cu:
+        v11 = sub_140001990;
+        break;
+      case 0x229354u:
+LABEL_25:
+        v10 = sub_140001FFC((__int64)p_Type, LowPart == 2265940, Options, Length, &a2->IoStatus.Information);// Io Port R/w
+        goto LABEL_29;
+      case 0x229378u:
+        if ( Options >= 8 )
+        {
+          v10 = sub_140002080((__int64)CurrentStackLocation->FileObject, *p_Type);
+          if ( v10 >= 0 )
+            *p_Information = 8LL;
+          goto LABEL_29;
+        }
+        goto LABEL_11;
+      case 0x229380u:
+        v10 = sub_140002120((ULONG *)p_Type, Options, &a2->IoStatus.Information);
+        goto LABEL_29;
+      default:
+LABEL_20:
+        v5 = -1073741822;
+        goto LABEL_30;
+    }
+    v10 = sub_140001748((_DWORD)a2, CurrentStackLocation->FileObject, (_DWORD)p_Type, Length, (__int64)v11);
+    goto LABEL_29;
+```
+
 **IO Port Function**
 ```
 __int64 __fastcall sub_140001FFC(__int64 a1, char a2, unsigned int a3, unsigned int a4, _QWORD *a5)
