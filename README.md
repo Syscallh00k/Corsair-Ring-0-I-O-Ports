@@ -10,7 +10,7 @@ Download the repository, compile the project and place everything from the libs 
 `C:\Program Files\Corsair\Corsair Device Control Service\bin`
 
 # Output Example
-![Image](./Corsair IO.png)
+![Image](Corsair IO.png)
 
 # Possibilities
 - R/W CMOS RTC
